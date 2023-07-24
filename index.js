@@ -10,7 +10,7 @@ const filePath = process.env.FILE_PATH;
 const client = new Client({ intents: [GatewayIntentBits.Guilds], partials: [Partials.Channel] });
 
 watchFile(filePath, { interval: 0 } , async () => {
-    const content = await read('./text.txt', 1);
+    const content = await read(filePath, 1);
     if (!content || typeof content !== 'string') return;
     const channel = await client.channels.fetch(guildId);
     if (!channel || typeof channel !== 'object') return;
